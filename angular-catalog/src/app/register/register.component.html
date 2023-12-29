@@ -1,0 +1,62 @@
+
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <h2 class="mb-5">Registration form</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group mb-2">
+              <label for="userName">User Name</label>
+              <input type="text" class="form-control" id="userName" formControlName="userName">
+              <div *ngIf="registerForm.get('userName')?.invalid && (registerForm.get('userName')?.dirty || registerForm.get('userName')?.touched)"
+                   class="text-danger">
+                <div *ngIf="registerForm.get('userName')?.hasError('required')">
+                  User Name is required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+              <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
+                   class="text-danger">
+                <div *ngIf="registerForm.get('password')?.hasError('required')">
+                  Password is required
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('minlength')">
+                  Password should have at least 3 characters
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="roleName">Role name</label>
+              <input type="text" class="form-control" id="roleName" formControlName="roleName">
+              <div *ngIf="registerForm.get('roleName')?.invalid && (registerForm.get('roleName')?.dirty || registerForm.get('roleName')?.touched)"
+                   class="text-danger">
+                <div *ngIf="registerForm.get('roleName')?.hasError('required')">
+                  Role Name is required
+                </div>
+              </div>
+            </div>
+            <div *ngIf="registration ">
+              <p class="text-danger">{{ serverMessage }}</p>
+            </div>
+
+            <div *ngIf="registration && registerForm.invalid" class="text-danger">
+              Please fill in all required fields correctly.
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

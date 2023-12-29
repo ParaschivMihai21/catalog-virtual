@@ -1,0 +1,29 @@
+.table-striped {
+    text-align: center;
+}
+
+.table-scrollable tbody {
+  display: block;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.table-scrollable thead,
+.table-scrollable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.student-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-input-container {
+  width: auto;
+}
+
+
+

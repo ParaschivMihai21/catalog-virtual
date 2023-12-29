@@ -1,0 +1,26 @@
+<div class="col-md-6 offset-md-3">
+<h3>Create student</h3>
+<form (ngSubmit)="onSubmit()">
+<div class="form-group">
+
+    <label>First Name</label>
+    <input type="text" class="form-control" id="firstName"
+           [(ngModel)]="student.firstName" name="firstName">
+    <label>Last Name</label>
+    <input type="text" class="form-control" id="lastName"
+           [(ngModel)]="student.lastName" name="lastName">
+    <label>Date of birth</label>
+    <input type="text" class="form-control" id="date_birth"
+           [(ngModel)]="student.date" name="date_birth">
+    <label>Gender</label>
+    <input type="text" class="form-control" id="gender"
+           [(ngModel)]="student.studentGender" name="gender">
+    <label>Email</label>
+    <input type="text" class="form-control" id="email"
+           [(ngModel)]="student.studentEmail" name="email">
+    <br>
+    <button class="btn btn-success" type="submit">Save</button>
+
+</div>
+</form>
+</div>

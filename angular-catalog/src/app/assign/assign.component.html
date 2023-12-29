@@ -1,0 +1,26 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">{{ titleModule }}</h5>
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="enrollStudent(selectedCourseId)">
+        <div class="form-group">
+          <label for="course">Choose a course:</label>
+          <select class="form-control" name="course" id="course" [(ngModel)]="selectedCourseId" required>
+
+            <option *ngFor="let course of courses" [value]="course.courseId">{{ course.title}}</option>
+          </select>
+          <br>
+        </div>
+        <button type="submit" class="btn btn-success">Enroll</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Close</button>
+    </div>
+  </div>
+</div>

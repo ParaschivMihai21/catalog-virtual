@@ -1,0 +1,63 @@
+<h3> Student details </h3>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date of birth</th>
+        <th>Gender</th>
+        <th>Email</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>{{studentDetails?.firstName}}</td>
+        <td>{{studentDetails?.lastName}}</td>
+        <td>{{studentDetails?.date}}</td>
+        <td>{{studentDetails?.studentGender}}</td>
+        <td>{{studentDetails?.studentEmail}}</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Course title</th>
+        <th>Grades</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <ng-container>
+        <tr *ngFor="let course of studentDetails?.courses">
+            <td>
+                {{course.courseId}}
+            </td>
+            <td>{{ course.title }}</td>
+            <td>
+                <input type="number" [(ngModel)]="course.grades">
+            </td>
+
+            <td>
+                <button (click)="updateStudentGrades(course.courseId,course.grades)" class="btn btn-primary btn-sm">
+                    Update
+                </button>
+            </td>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success btn-sm" style="margin-left: 10px"
+(click)="enroll()"> Enroll in to a new course </button>
+
+
